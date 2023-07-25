@@ -20,3 +20,28 @@ INTO TABLE `22-23 FA`
 	ENCLOSED BY '"' 
 	ESCAPED BY '\\'
 ;
+
+#Creation of population tables
+
+CREATE TABLE `Population_California_Counties`
+(`County` varchar(255),
+`Total` int,
+`White` int,
+`Black or African American` int,
+`American Indian and Alaska Native` int,
+`Asian` int,
+`Native Hawaiian and Other Pacific Islander` int, 	 
+`Some other race` int,
+`Two or more races` int,
+`Three or more` int
+);
+
+LOAD DATA LOCAL INFILE '/Users/markzerrudo/Documents/GitHub/FinancialAidAndEnrollment/Demographic Information/2020 Population by County.csv'
+INTO TABLE `Population_California_Counties`
+	FIELDS TERMINATED BY ',' 
+	ENCLOSED BY '"' 
+	ESCAPED BY '\\'
+    IGNORE 2 LINES
+;
+
+SELECT * FROM `Population_California_Counties`;
